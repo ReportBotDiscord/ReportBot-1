@@ -42,7 +42,7 @@ client.on('message', message => {
 
 		if (message.content.startsWith(prefix + ``)) {
 			const number = Math.floor(Math.random() * 6) + 1;
-		message.reply('Thank You For Using Our Report System! You Will Shortly Get A DM From Staff! Your Report Number Is ${number}');
+		message.reply('Thank You For Using Our Report System! You Will Shortly Get A DM From Staff! Your Report Number Is ${number} ');
 	} else
 
 	if (message.content.startsWith(`say`)) {
