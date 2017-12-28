@@ -20,7 +20,6 @@ client.on('guildMemberAdd', member => {
 	if (message.content === '-report') {
     const roll = Math.floor(Math.random() * 6) + 1;
     message.channel.send(`You rolled **${roll}**`);
-});
  
 var prefix = "-report"
 var prefix2 = "-"
