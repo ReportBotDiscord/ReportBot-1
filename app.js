@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const number = Math.floor(Math.random() * 6) + 1;
 
 client.on("ready", () => {
     client.user.setGame(`-report [@name] [reason]`);
@@ -23,11 +24,6 @@ client.on('message', message => {
 	  message.reply(message.author.avatarURL);
 	}
 	
-client.on('message', message => {
-	if (message.content === '-avatar') {
-	    const number = Math.floor(Math.random() * 6) + 1;
-		message.channel.send(`Your Report Number Is #**${number}**`);
-	
 
 	if (message.author.bot) return;
 
@@ -45,8 +41,22 @@ client.on('message', message => {
 		}
 
 		if (message.content.startsWith(prefix + ``)) {
-		message.reply('Thank You For Using Our Report System! You Will Shortly Get A DM From Staff!');
+		message.reply('Thank You For Using Our Report System! You Will Shortly Get A DM From Staff! Your Report Numer Is #**${number}**');
 	} else
+
+	if (message.content.startsWith(`say`)) {
+    // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
+    // To get the "message" itself we join the `args` back into a string with spaces: 
+    const sayMessage = args.join(" ");
+    // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
+    message.delete().catch(O_o=>{}); 
+    // And we get the bot to say the thing: 
+    message.channel.send(sayMessage);
+  }
+  
+	if (message.content.startsWith(prefix2 + `ping simple`)) {
+		message.channel.send('Pong!');
+	}
 });
 
 client.login(process.env.BOT_TOKEN);
