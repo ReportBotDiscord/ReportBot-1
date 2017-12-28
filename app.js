@@ -29,7 +29,7 @@ client.on('message', message => {
 		  })
 		}
 
-		if (message.content.startsWith(prefix + `@`)) {
+		if (message.content.startsWith(prefix + ``)) {
 		message.reply('Thank You For Using Our Report System! You Will Shortly Get A DM From Staff!');
 	console.log(`A User Was Reported`);
 	} else
