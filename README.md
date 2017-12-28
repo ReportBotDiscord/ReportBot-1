@@ -1,2 +1,2 @@
-# ReportBot
-shut up
+# reportbot
+not today
