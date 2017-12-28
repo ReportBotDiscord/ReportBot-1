@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const number = Math.floor(Math.random() * 6) + 1;
+const number = Math.floor(Math.random() * 9999) + 1;
 
 client.on("ready", () => {
     client.user.setGame(`-report [@name] [reason]`);
@@ -41,8 +41,7 @@ client.on('message', message => {
 		}
 
 		if (message.content.startsWith(prefix + ``)) {
-			const number = Math.floor(Math.random() * 6) + 1;
-		message.reply('Thank You For Using Our Report System! You Will Shortly Get A DM From Staff! Your Report Number Is ${number} ');
+		message.reply(`Thanks For Using Our Report Sytem!, You Will Shortly Get A DM From A Staff Member! You Report Number Is #${number}`);
 	} else
 
 	if (message.content.startsWith(`say`)) {
