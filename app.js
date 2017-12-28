@@ -57,10 +57,5 @@ client.on('message', message => {
     // And we get the bot to say the thing: 
     message.channel.send(sayMessage);
   }
-  
-	if (message.content.startsWith(prefix2 + `ping simple`)) {
-		message.channel.send('Pong!');
-	}
-});
 
 client.login(process.env.BOT_TOKEN);
