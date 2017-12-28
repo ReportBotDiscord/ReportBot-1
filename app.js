@@ -17,20 +17,22 @@ client.on('message', message => {
 	if (message.author.bot) return;
 
 	if (message.content.includes('delete this message report bot')) {
-		message.delete(1);
+		message.delete();
     }
 
 	if (!message.content.startsWith(prefix)) return;
 	if (message.author.bot) return;
 
-	if (message.content.startsWith(prefix2 + `ping`)) {
+	if (message.content.startsWith(`-ping`)) {
 		message.channel.send('Pinging...').then(sent => {
 			sent.edit(`Pong!\nTook \`${(sent.createdTimestamp - message.createdTimestamp) / 2}\`ms`)
 		  })
 		}
 
-		if (message.content.startsWith(prefix + ``)) {
-		message.reply('Thank You For Using Our Report System! You Will Shortly Get A DM From An Owner!');
+		if (message.content.startsWith(prefix + `@`)) {
+		message.reply('Thank You For Using Our Report System! You Will Shortly Get A DM From Staff!');
+	console.log(`A User Was Reported`);
+  });
 	} else
 
 	if (message.content.startsWith(`-say`)) {
