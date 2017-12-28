@@ -23,6 +23,11 @@ client.on('message', message => {
 	  message.reply(message.author.avatarURL);
 	}
 	
+client.on('message', message => {
+	if (message.content === '-avatar') {
+	    const number = Math.floor(Math.random() * 6) + 1;
+		message.channel.send(`Your Report Number Is #**${number}**`);
+	
 
 	if (message.author.bot) return;
 
