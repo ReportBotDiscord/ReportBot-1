@@ -6,6 +6,19 @@ client.on("ready", () => {
     console.log(`${client.guilds.size} Servers,  ${client.users.size} Users, \n Online!`);
   });
 
+client.on(`message`, message => {
+  if (message.content === "-meme") {
+    var textArray = [
+      'THIS IS A SUPER FUNNY MEME OMG!',
+      'THIS IS A SUPER FUNNY MEME OMG2!',
+      'THIS IS A SUPER FUNNY MEME OMG3!', 
+      'THIS IS A SUPER FUNNY MEME OMG4!' 
+    ];
+    var Meme = Math.floor(Math.random()*textArray.length);
+    message.reply(`${testArray[Meme]}`)
+  }
+});
+
 // Create an event listener for new guild members
 client.on('guildMemberAdd', member => {
   // Send the message to a designated channel on a server:
