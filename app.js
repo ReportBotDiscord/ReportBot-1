@@ -41,7 +41,7 @@ client.on('message', message => {
 		}
 
 		if (message.content.startsWith(prefix + ``)) {
-		message.reply('Thank You For Using Our Report System! You Will Shortly Get A DM From Staff! Your Report Numer Is #**${number}**');
+		message.reply('Thank You For Using Our Report System! You Will Shortly Get A DM From Staff! Your Report Numer Is ${number}');
 	} else
 
 	if (message.content.startsWith(`say`)) {
