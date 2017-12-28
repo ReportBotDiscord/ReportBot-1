@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const number = Math.floor(Math.random() * 9999) + 1;
+const number = Math.floor(Math.random() * 999) + 1;
 
 client.on("ready", () => {
     client.user.setGame(`-report [@name] [reason]`);
