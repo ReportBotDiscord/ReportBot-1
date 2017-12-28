@@ -15,12 +15,7 @@ client.on('guildMemberAdd', member => {
   // Send the message, mentioning the member
   channel.send(`Everyone please welcome our newest member, ${member}`);
 });
- 
-// Command with aliases 
-	if (message.content === '-report') {
-    const roll = Math.floor(Math.random() * 6) + 1;
-    message.channel.send(`You rolled **${roll}**`);
- 
+
 var prefix = "-report"
 var prefix2 = "-"
 client.on('message', message => {
