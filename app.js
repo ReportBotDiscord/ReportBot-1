@@ -17,7 +17,7 @@ client.on('guildMemberAdd', member => {
 });
  
 // Command with aliases 
-		if (message.content.startsWith(prefix + ``)) {
+	if (message.content === '-report') {
     const roll = Math.floor(Math.random() * 6) + 1;
     message.channel.send(`You rolled **${roll}**`);
 });
