@@ -7,34 +7,6 @@ client.on("ready", () => {
     console.log(`${client.guilds.size} Servers,  ${client.users.size} Users, \n Online!`);
   });
 
-// Bans
-client.on(`message`, message => {
-  if (message.content === "/ban") {
-    let modRole = message.guild.roles.find("name", "Hight Staff");
-    if(message.member.roles.has(modRole.id)) { 
-      let banMember = message.guild.member(message.mentions.users.first());
-      message.guild.member(banMember).ban();
-      message.channel.sendMessage("Member banned.");
-    } else {
-      return message.reply("You dont have the perms to ban members.");
-    }
-  }
-});
-
-// Kicks
-client.on(`message`, message => {
-  if (message.content === "-kick") {
-    let modRole = message.guild.roles.find("name", "Staff");
-    if(message.member.roles.has(modRole.id)) { 
-      let kickMember = message.guild.member(message.mentions.users.first());
-      message.guild.member(kickMember).kick();
-      message.channel.sendMessage("Member Kicked.");
-    } else {
-      return message.reply("You dont have the perms to kick members.");
-    }
-  }
-});
-
 // Join Messages
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find('name', 'joins');
@@ -70,10 +42,6 @@ client.on('message', message => {
 		message.reply(`Thanks For Using Our Report Sytem!, You Will Shortly Get A DM From A Staff Member! You Report Number Is **#${number}**`);
 	} else
 		
-client.on('message', message => {
-	if (message.content === '-ping-s') {
-		message.channel.send('Pong!');
-	}
 });
 
 client.login(process.env.BOT_TOKEN);
