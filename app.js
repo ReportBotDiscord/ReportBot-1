@@ -34,7 +34,8 @@ client.on('message', message => {
 	if (!message.content.startsWith(prefix)) return;
 	if (message.author.bot) return;
 
-	if (message.content.startsWith(prefix2 + `ping`)) {
+client.on('message', message => {
+	if (message.content === '-ping') {
 		message.channel.send('Pinging...').then(sent => {
 			sent.edit(`Pong!\nTook \`${(sent.createdTimestamp - message.createdTimestamp) / 2}\`ms`)
 		  })
@@ -45,7 +46,7 @@ client.on('message', message => {
 		message.reply(`Thanks For Using Our Report Sytem!, You Will Shortly Get A DM From A Staff Member! You Report Number Is #${number}`);
 	} else
 
-	if (message.content.startsWith(`say`)) {
+	if (message.content.startsWith(`-say`)) {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
     const sayMessage = args.join(" ");
