@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const number = Math.floor(Math.random() * 9999) + 1;
+const roll = Math.floor(Math.random() * 6) + 1;
 
 client.on("ready", () => {
     client.user.setGame(`-report [@name] [reason]`);
@@ -42,11 +43,13 @@ client.on('message', message => {
 		message.reply(`Thanks For Using Our Report Sytem!, You Will Shortly Get A DM From A Staff Member! You Report Number Is **#${number}**`);
 	} else
 		
-	if (message.content.includes('delete this message report bot')) {
-		message.delete();
-    }
-		
-});
-		
+client.on('message', message => {
+	if (message.content === '-roll') {
+		message.channel.send('Rolling...').then(sent => {
+			sent.edit(`Your Rolled **${roll}**`)
+		  })
+		}
 	
+});
+			
 client.login(process.env.BOT_TOKEN);
