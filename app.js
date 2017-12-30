@@ -34,7 +34,7 @@ client.on('message', message => {
 	if (!message.content.startsWith(prefix)) return;
 	if (message.author.bot) return;
 
-	if (message.content === '-ping') {
+	if (message.content.startsWith(prefix2 + `ping`)) {
 		message.channel.send('Pinging...').then(sent => {
 			sent.edit(`Pong!\nTook \`${(sent.createdTimestamp - message.createdTimestamp) / 2}\`ms`)
 		  })
