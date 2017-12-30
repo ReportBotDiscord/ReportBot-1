@@ -43,13 +43,6 @@ client.on('message', message => {
 		message.reply(`Thanks For Using Our Report Sytem!, You Will Shortly Get A DM From A Staff Member! You Report Number Is **#${number}**`);
 	} else
 		
-client.on('message', message => {
-	if (message.content === '-roll') {
-		message.channel.send('Rolling...').then(sent => {
-			sent.edit(`Your Rolled **${roll}**`)
-		  })
-		}
-	
 		if (message.content.startsWith(`-ping-s`)) {
 		message.channel.send('Pong!');
 	}
