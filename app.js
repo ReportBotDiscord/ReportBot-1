@@ -6,7 +6,7 @@ const roll = Math.floor(Math.random() * 6) + 1;
 client.on("ready", () => {
     client.user.setGame(`-report [@name] [reason]`);
     console.log(`${client.guilds.size} Servers,  ${client.users.size} Users, \n Online!`);
-  });
+});
 
 // Join Messages
 client.on('guildMemberAdd', member => {
