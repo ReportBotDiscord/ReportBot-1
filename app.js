@@ -7,18 +7,42 @@ client.on("ready", () => {
     console.log(`${client.guilds.size} Servers,  ${client.users.size} Users, \n Online!`);
   });
 
-// Create an event listener for new guild members
+// Bans
+client.on(`message`, message => {
+  if (message.content === "/ban") {
+    let modRole = message.guild.roles.find("name", "Moderators");
+    if(message.member.roles.has(modRole.id)) { 
+      let banMember = message.guild.member(message.mentions.users.first());
+      message.guild.member(banMember).ban();
+      message.channel.sendMessage("Member banned.");
+    } else {
+      return message.reply("You dont have the perms to ban members.");
+    }
+  }
+});
+
+// Kicks
+client.on(`message`, message => {
+  if (message.content === "-kick") {
+    let modRole = message.guild.roles.find("name", "Moderators");
+    if(message.member.roles.has(modRole.id)) { 
+      let kickMember = message.guild.member(message.mentions.users.first());
+      message.guild.member(kickMember).kick();
+      message.channel.sendMessage("Member Kicked.");
+    } else {
+      return message.reply("You dont have the perms to kick members.");
+    }
+  }
+});
+
+// Join Messages
 client.on('guildMemberAdd', member => {
-  // Send the message to a designated channel on a server:
   const channel = member.guild.channels.find('name', 'joins');
-  // Do nothing if the channel wasn't found on this server
   if (!channel) return;
-  // Send the message, mentioning the member
   channel.send(`Everyone please welcome our newest member, ${member}`);
 });
 
 var prefix = "-report"
-var prefix2 = "-"
 client.on('message', message => {
 	if (message.content === '-avatar') {
 	  message.reply(message.author.avatarURL);
@@ -33,29 +57,21 @@ client.on('message', message => {
 
 	if (!message.content.startsWith(prefix)) return;
 	if (message.author.bot) return;
-
-	if (message.content.startsWith(prefix2 + `ping`)) {
+	
+client.on('message', message => {
+	if (message.content === '-ping') {
 		message.channel.send('Pinging...').then(sent => {
 			sent.edit(`Pong!\nTook \`${(sent.createdTimestamp - message.createdTimestamp) / 2}\`ms`)
 		  })
 		}
-
+                 // -report sytem
 		if (message.content.startsWith(prefix + ``)) {
 			const number = Math.floor(Math.random() * 9999) + 1;
 		message.reply(`Thanks For Using Our Report Sytem!, You Will Shortly Get A DM From A Staff Member! You Report Number Is **#${number}**`);
 	} else
-
-	if (message.content.startsWith(`say`)) {
-    // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
-    // To get the "message" itself we join the `args` back into a string with spaces: 
-    const sayMessage = args.join(" ");
-    // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
-    message.delete().catch(O_o=>{}); 
-    // And we get the bot to say the thing: 
-    message.channel.send(sayMessage);
-  }
-  
-	if (message.content.startsWith(prefix2 + `ping simple`)) {
+		
+client.on('message', message => {
+	if (message.content === '-ping-s') {
 		message.channel.send('Pong!');
 	}
 });
