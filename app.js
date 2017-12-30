@@ -50,6 +50,9 @@ client.on('message', message => {
 		  })
 		}
 	
+		if (message.content.startsWith(`-ping-s`)) {
+		message.channel.send('Pong!');
+	}
 });
-			
+
 client.login(process.env.BOT_TOKEN);
