@@ -44,6 +44,15 @@ client.on('message', message => {
 			const number = Math.floor(Math.random() * 9999) + 1;
 		message.reply(`Thanks For Using Our Report Sytem!, You Will Shortly Get A DM From A Staff Member! You Report Number Is **#${number}**`);
 	} else
+		
+	if (message.content.startsWith(prefix + 'landloctation')) {
+		let ball = ["Junk Junction", "Anarchy Acres", "Wailing Woods" , "Haunted Hills", "Pleasant Park" , "Loot Lake" ,"Tomato Town", "Lonley Lodge", "Snobby Shores", "Tilted Towers" , "Dusty Depot" , "Retail Row", "Greasy Grove", "Shifty Shafts", "Salty Springs", "Fatal Fields", "Moisty Mires", "Flush Factory"];
+		let choice = ball[Math.floor(Math.random() * ball.length)];
+		var embed = new Discord.RichEmbed()
+		.setDescription(choice)
+		.setColor(0xff2d32)
+		return message.channel.send(embed)
+	  }
 
 	if (message.content.startsWith(`-say`)) {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
